@@ -1,0 +1,285 @@
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+/******************************************
+  /* BASE STYLES
+  /*******************************************/
+
+body {}
+
+
+/******************************************
+  /* LAYOUT
+  /*******************************************/
+/* !!!!!TRY INLINE BLOCK FOR NAV LINKS (RAI'S DISCORD MESSAGE) !!!!*/
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    background: black;
+    height: 6vh;
+    margin-top: -1.4%;
+}
+
+header ul {
+    list-style-type: none;
+}
+
+.logo {
+    width: 8%;
+    float: left;
+    margin-left: -2.5%;
+    margin-top: 0.47%;
+    border-right: 1px solid white;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: white;
+    float: left;
+    width: 8%;
+    border-right: 1px solid white;
+    display: inline-block;
+    height: 6vh;
+    padding-top: 18px;
+    padding-left: 18px;
+}
+
+form {
+    width: 5%;
+    display: inline-block;
+    padding-left: 12px;
+    padding-top: 12px;
+}
+
+/* welcome & date */
+.welcome {
+    font-weight: 800;
+    margin-left: 0.5rem;
+}
+
+.date {
+    float: right;
+    color: gray;
+    margin-top: -2.8%;
+    margin-right: 1%;
+}
+
+main {
+    float: left;
+}
+
+.main-img {
+    margin-left: 1%;
+}
+
+.main-content {
+    margin-top: -23%;
+    margin-left: 3.5%;
+    color: white;
+}
+
+main>h1 {
+    font-size: 30px;
+}
+
+.main-para {
+    margin-top: 4%;
+    padding-right: 9%;
+}
+
+/* side panels - top */
+.img-home {
+    margin-left: -2%;
+}
+
+.side-art {
+    float: left;
+    width: 33.33%;
+}
+
+.side1-content {
+    color: blue;
+    margin-top: -88px;
+    margin-left: -28px;
+}
+
+.canam {
+    margin-left: -1.5rem;
+}
+
+.side1-h3 {
+    font-size: 18px;
+    margin-left: 4px;
+    width: 55%;
+    color: white;
+}
+
+.s1-span1 {
+    color: skyblue;
+}
+
+.side1-span {
+    display: block;
+    color: white;
+    margin-left: 18px;
+    margin-top: -18px;
+}
+
+.vaccinate {
+    margin-top: -24rem;
+    margin-left: 970px;
+    padding-left: 3.8rem;
+}
+
+.side2-h3 {
+    color: white;
+    margin-top: -5.6rem;
+    padding-right: 8rem;
+    padding-left: 12px;
+}
+
+.s2-span1 {
+    color: red;
+    padding-left: 10px;
+}
+
+.side2-span {
+    display: block;
+    color: white;
+    margin-left: 30px;
+    margin-top: -17px;
+}
+
+.gym {
+    margin-top: -11.3rem;
+    margin-left: 39.3rem;
+}
+
+.side3-h3 {
+    color: white;
+    margin-top: -4.5rem;
+    margin-left: 10px;
+}
+
+.s3-span1 {
+    color: skyblue;
+    margin-left: 10px;
+}
+
+.side3-span {
+    display: block;
+    color: white;
+    margin-left: 28px;
+    margin-top: -17px;
+}
+
+.singer {
+    margin-top: -11.6rem;
+    margin-left: 64.5rem;
+}
+
+.side4-h3 {
+    color: white;
+    margin-top: -4.5rem;
+    margin-left: 1rem;
+}
+
+.s4-span1 {
+    color: gray;
+    margin-left: 10px;
+}
+
+.side4-span {
+    display: block;
+    color: white;
+    margin-left: 30px;
+    margin-top: -16px;
+}
+
+/* bottom section */
+.news-header {
+    clear: both;
+    padding-top: 3rem;
+    padding-left: 0.3rem;
+}
+
+.bottom-block {
+    clear: both;
+}
+
+.bottom-section {
+    float: left;
+}
+
+.b1 {
+    margin-left: 8px;
+}
+
+.b1-h3 {
+    display: block;
+    margin-top: 3px;
+    width: 48%;
+}
+
+.b1-p {
+    margin-top: -10px;
+    width: 56%;
+}
+
+.b2 {
+    margin-left: 30.3rem;
+    margin-top: -23.8rem;
+}
+
+.b2-h3 {
+    clear: both;
+    padding-top: 7px;
+    width: 58%;
+}
+
+.b2-p {
+    margin-top: -10px;
+    width: 58%;
+}
+
+.b3 {
+    margin-top: -23.9rem;
+    margin-left: 60rem;
+}
+
+.b3-h3 {
+    clear: both;
+    padding-top: 4px;
+    width: 85%;
+}
+
+.b3-p {
+    margin-top: -9px;
+}
+
+.b-red {
+    color: red;
+}
+
+/******************************************
+  /* ADDITIONAL STYLES
+  /*******************************************/

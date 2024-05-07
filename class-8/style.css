@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
+header,
+footer {
+    height: 180px;
+    border: 2px solid gray;
+    border-top: none;
+    clear: both;
+}
+
+section {
+    height: 320px;
+    width: 33.33%;
+    border: 2px solid gray;
+    border-top: none;
+    border-right: none;
+    float: left;
+}
+
+@media (min-width: 250px) and (max-width: 860px) {
+
+    header,
+    footer {
+        height: 230px;
+        border-right: none;
+    }
+
+    section {
+        height: 338px;
+    }
+
+}
+
+@media (min-width: 861px) and (max-width: 1055px) {
+
+    header,
+    footer {
+        height: 268px;
+        border-right: none;
+    }
+
+    section {
+        height: 402px;
+    }
+
+}
+
+@media (min-width: 1056px) {
+
+    header,
+    footer {
+        height: 280px;
+        border-right: none;
+    }
+
+    section {
+        height: 385px;
+    }
+
+}

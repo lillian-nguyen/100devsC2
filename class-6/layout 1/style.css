@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+header,
+footer {
+    height: 100px;
+    border: 2px solid lightgray;
+    clear: both;
+}
+
+header {
+    border-bottom: none;
+}
+
+footer {
+    border-top: none;
+}
+
+.row1 {
+    height: 125px;
+    width: 33.333%;
+    border: 2px solid lightgray;
+    border-right: none;
+    border-bottom: none;
+    float: left;
+}
+
+#end1 {
+    border-right: 2px solid lightgray
+}
+
+.row2 {
+    height: 180px;
+    width: 50%;
+    border: 2px solid lightgray;
+    border-right: none;
+    float: left;
+}
+
+#end2 {
+    border-right: 2px solid lightgray
+}

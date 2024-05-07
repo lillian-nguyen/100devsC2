@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+header,
+footer {
+    height: 80px;
+    border: 2px solid lightgray;
+    clear: both;
+}
+
+.row {
+    height: 295px;
+    border: 2px solid lightgray;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    float: left;
+}
+
+#row1 {
+    width: 18%;
+}
+
+#row2 {
+    width: 40%;
+}
+
+#row3,
+#row4 {
+    width: 21%;
+}
+
+#row4 {
+    border-right: 2px solid lightgray;
+}

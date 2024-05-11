@@ -1,0 +1,88 @@
+body {
+    background-color: white;
+    background-image: url(beach.jpg);
+    background-position: 25%;
+    background-repeat: no-repeat;
+    /* color: white; */
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.characters {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    width: 100vw;
+}
+
+.kairi-info,
+.sora-info,
+.riku-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28%;
+    height: 80vh;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.base-img {
+    transform: scale(0.6);
+    width: 30vw;
+}
+
+.sora-info img,
+.riku-info img {
+    transform: scale(0.9);
+    margin-left: -4rem;
+}
+
+.kairi-info img {
+    transform: scale(0.32);
+    margin-top: -34.5rem;
+    padding: 0 3rem;
+}
+
+.kairi-info h3,
+.sora-info h3,
+.riku-info h3 {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    width: 100%;
+    letter-spacing: 0.8rem;
+    font-size: 3rem;
+    position: relative;
+    margin-top: -38rem;
+    margin-left: -22rem;
+    left: 3rem;
+    top: -28rem;
+    z-index: 3rem;
+}
+
+.sora-info h3,
+.riku-info h3 {
+    margin-top: -3rem;
+}
+
+/* adds color border around character box */
+
+.kairi-border {
+    border: 6px solid rgb(250, 156, 193);
+}
+
+.sora-border {
+    border: 6px solid rgb(146, 198, 255)
+}
+
+.riku-border {
+    border: 6px solid rgb(104, 66, 121)
+}
+
+.boys-upsize {
+    transform: scale(1);
+}
+
+/* js: make images larger on hover and show class with borders  */

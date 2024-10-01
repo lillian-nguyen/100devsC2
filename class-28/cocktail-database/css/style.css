@@ -1,0 +1,123 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+}
+
+/******************************************
+  /* LAYOUT
+  /*******************************************/
+img {
+    display: block;
+    margin: 0 auto;
+    height: 200px;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    background-image: url('/jakub-dziubak-drink.jpg');
+    background-position: 40% 35.5%;
+}
+
+.drink-intro {
+    position: relative;
+    top: 12rem;
+    left: 22rem;
+    width: 100%;
+    height: 18rem;
+    /* margin-left: 25%; */
+    text-align: center;
+    font-family: "Source Code Pro", monospace
+}
+
+.intro-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.instructions {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: rgba(153, 161, 88, 70%)
+}
+
+.instructions p {
+    margin-top: -0.8rem;
+    padding-bottom: 0.5rem;
+}
+
+.instructions input {
+    background-color: palegoldenrod;
+    border: white;
+    text-align: center;
+}
+
+#search-drink {
+    background-color: rgb(134, 142, 72);
+    border: rgb(153, 161, 88);
+    color: white;
+}
+
+#search-drink:hover {
+    cursor: pointer;
+}
+
+.project-name {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+.project-name hr {
+    border: 3px double palegoldenrod;
+}
+
+.drink-intro h1 {
+    font-size: 3.5rem;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    letter-spacing: 0.2rem;
+    color: palegoldenrod;
+    background-color: rgba(153, 161, 88, 95%)
+}
+
+
+/* drink information  */
+
+.drink-info {
+    position: relative;
+    left: -23rem;
+    margin: auto;
+    margin-top: 10%;
+    text-align: center;
+    border: 2px solid #DDDBD7;
+    background-color: rgba(174, 163, 142, 1);
+    width: 100%;
+    visibility: hidden;
+}
+
+.drink-info h2 {
+    font-family: "Playfair Display", serif;
+    letter-spacing: 0.3rem;
+}
+
+.drink-info h3 {
+    font-family: "Source Code Pro", monospace
+}
+
+/******************************************
+  /* ADDITIONAL STYLES / NOTES
+  /*******************************************/
+
+/* img credit: https://unsplash.com/photos/brown-beverage-with-olives-and-herb-in-rocks-glass-in-macro-photography-gj7BLlSzIFs */

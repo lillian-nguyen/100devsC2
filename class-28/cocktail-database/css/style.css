@@ -19,7 +19,7 @@ img {
 body {
     display: flex;
     align-items: center;
-    background-image: url('/jakub-dziubak-drink.jpg');
+    background-image: url('/cocktail-database/jakub-dziubak-drink.jpg');
     background-position: 40% 35.5%;
 }
 
@@ -96,24 +96,59 @@ body {
 /* drink information  */
 
 .drink-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 37rem;
     position: relative;
-    left: -23rem;
+    left: -22rem;
+    top: 7rem;
     margin: auto;
     margin-top: 10%;
     text-align: center;
     border: 2px solid #DDDBD7;
     background-color: rgba(174, 163, 142, 1);
-    width: 100%;
     visibility: hidden;
 }
 
-.drink-info h2 {
+.recipe-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+#drink-name {
     font-family: "Playfair Display", serif;
     letter-spacing: 0.3rem;
 }
 
-.drink-info h3 {
-    font-family: "Source Code Pro", monospace
+#instructions,
+#ingredients {
+    font-family: "Source Code Pro", monospace;
+    text-align: center;
+    width: 50%;
+    padding-top: 1.5rem;
+}
+
+#ingredients {
+    background-color: purple;
+}
+
+#instructions {
+    background-color: pink;
+}
+
+.lengthen {
+    height: 37rem;
+    top: 5rem;
+}
+
+/* error screen */
+.error-screen {
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    visibility: hidden;
+    background-color: blue;
 }
 
 /******************************************

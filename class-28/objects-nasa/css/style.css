@@ -1,0 +1,36 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/******************************************
+  /* LAYOUT
+  /*******************************************/
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+h2,
+h3 {
+  text-align: center;
+}
+
+
+
+
+/******************************************
+  /* ADDITIONAL STYLES
+  /*******************************************/
+
+/* <h1>Which date?</h1>
+<input type="date" name="" value="">
+<button type="button" name="button">Get Picture</button>
+
+<h2>Name</h2>
+<img src="" alt="">
+<h3>Description</h3> */

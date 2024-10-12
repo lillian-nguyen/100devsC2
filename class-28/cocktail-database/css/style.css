@@ -13,13 +13,15 @@
 img {
     display: block;
     margin: 0 auto;
-    height: 200px;
+    height: 215px;
+    border-radius: 45%;
 }
 
 body {
     display: flex;
     align-items: center;
     background-image: url('/cocktail-database/jakub-dziubak-drink.jpg');
+    background-size: cover;
     background-position: 40% 35.5%;
 }
 
@@ -61,13 +63,13 @@ body {
     text-align: center;
 }
 
-#search-drink {
+#search-button {
     background-color: rgb(134, 142, 72);
     border: rgb(153, 161, 88);
     color: white;
 }
 
-#search-drink:hover {
+#search-button:hover {
     cursor: pointer;
 }
 
@@ -89,7 +91,8 @@ body {
     font-style: italic;
     letter-spacing: 0.2rem;
     color: palegoldenrod;
-    background-color: rgba(153, 161, 88, 95%)
+    background-color: rgba(153, 161, 88, 95%);
+    text-shadow: rgb(54, 41, 30) 2px 0 10px;
 }
 
 
@@ -121,20 +124,12 @@ body {
     letter-spacing: 0.3rem;
 }
 
-#instructions,
-#ingredients {
+.instructions-container,
+.ingredients-container {
     font-family: "Source Code Pro", monospace;
     text-align: center;
     width: 50%;
     padding-top: 1.5rem;
-}
-
-#ingredients {
-    background-color: purple;
-}
-
-#instructions {
-    background-color: pink;
 }
 
 .lengthen {

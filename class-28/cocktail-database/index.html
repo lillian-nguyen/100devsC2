@@ -30,8 +30,8 @@
 				<div class="instructions">
 					<h1>Cocktail Database</h1>
 					<p>Cocktail Database is your go-to mixology resource! Browse our extensive collection of cocktails for your favorite drinks or discover new ones. Each entry includes a recipe, ingredient list, and photo inspiration. Happy mixing!</p>
-					<input type="text" name="" value="" placeholder="cocktail name">
-					<button type="button" name="button" class="search-drink">Search</button>
+					<input type="text" name="" value="" class="search-input" placeholder="cocktail name">
+					<button type="button" name="button" class="search-button">Search</button>
 				</div>
 
 				<div class="project-name">
@@ -46,20 +46,28 @@
 			<h2 id="drink-name">Name</h2>
 			<img src="" alt="">
 			<div class="recipe-row">
-				<h4 id="ingredients">Ingredients</h4>
-				<h3 id="instructions">Instructions</h3>
+				<div class="ingredients-container">
+					<h3 id="ingredients">Ingredients</h3>
+					<ul id="ingredientsList"></ul>
+				</div>
+				
+				<div class="instructions-container">
+					<h3 id="instructions">Instructions</h3>
+					<ol id="instructionSteps"></ol>
+				</div>
+				
 			</div>
 
 			<div class="search">
-				<input type="text" name="" value="" id="main-search" placeholder="cocktail name">
-				<button type="button" name="button" class="search" id="search-drink">Search</button>
+				<input type="text" name="" value="" class="search-input" placeholder="cocktail name">
+				<button type="button" name="button" class="search-button">Search</button>
 			</div>
 		</section>
 
 		<section class="error-screen">
 			<h2>not found. please try again</h2>
-			<input type="text" name="" value="" id="search-again" placeholder="cocktail name">
-			<button type="button" name="button" class="search" id="error-search">Search</button>
+			<!-- <input type="text" name="" value="" id="search-again" placeholder="cocktail name">
+			<button type="button" name="button" class="search" id="error-search">Search</button> -->
 		</section>
 		
 

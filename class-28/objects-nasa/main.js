@@ -3,8 +3,8 @@
 document.querySelector('button').addEventListener('click', showPicture)
 
 function showPicture() {
-    // const choice = document.querySelector('input').value;
-    const url = 'https://api.nasa.gov/planetary/apod?api_key=4oOimujZIyBmNC3y2pc73Ev7YMD2pfPxth3cJX2K';
+    const choice = document.querySelector('input').value;
+    const url = `https://api.nasa.gov/planetary/apod?api_key=4oOimujZIyBmNC3y2pc73Ev7YMD2pfPxth3cJX2K&date=${choice}`;
 
     fetch(url)
         .then(res => res.json()) // parse response as JSON

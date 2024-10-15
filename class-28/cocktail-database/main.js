@@ -2,21 +2,33 @@
 let currentDrinkData = null;
 
 //event listener for .search button
-const searchButtons = document.querySelectorAll('.search-button');
+// const searchButtons = document.querySelectorAll('.search-button');
 
-searchButtons.forEach(button => {
-    button.addEventListener('click', getDrink)
+// searchButtons.forEach(button => {
+//     button.addEventListener('click', getDrink);
+// })
+
+const initialSearch = document.querySelector('.initial-button')
+initialSearch.addEventListener('click', getDrink)
+
+//for new search
+const searchAgain = document.querySelectorAll('.search-button');
+searchAgain.forEach(button => {
+    button.addEventListener('click', updateSearch);
 })
 
-function getDrink() {
+//global variable for search input
+let drink = null;
 
+
+function getDrink() {
     //get value from input
-    let drink = document.querySelector('.search-input').value;
+    drink = document.querySelector('.initial-input').value;
+
     console.log(`searching for: ${drink}`)
 
     //show loading screen for 2 seconds
     loadingScreen();
-
 
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
         .then(res => res.json()) //parse response as JSON
@@ -28,15 +40,14 @@ function getDrink() {
             if (data.drinks !== null) {
                 console.log(data.drinks);
 
-                document.querySelector('#drink-name').innerText = data.drinks[0].strDrink;
-                document.querySelector('img').alt = data.drinks[0].strDrink;
-                document.querySelector('img').src = data.drinks[0].strDrinkThumb;
+                // document.querySelector('#drink-name').innerText = data.drinks[0].strDrink;
+                // document.querySelector('img').alt = data.drinks[0].strDrink;
+                // document.querySelector('img').src = data.drinks[0].strDrinkThumb;
 
                 //show recipe card components
                 showIngredients();
                 showInstructions();
                 getRecipeCard();
-
 
             } else if (data.drinks == null) {
                 showErrorScreen();
@@ -47,6 +58,13 @@ function getDrink() {
             console.log(`error ${err}`);
             showErrorScreen();
         });
+}
+
+function updateSearch() {
+    let newSearch = document.querySelector('.search-input').value;
+    document.querySelector('.initial-input').value = newSearch;
+    console.log(drink)
+    getDrink();
 }
 
 // show loading screen text after hitting search button
@@ -66,6 +84,12 @@ function getRecipeCard() {
     setTimeout(() => {
         document.querySelector('.drink-info').style.visibility = 'visible';
     }, 1220)
+
+    document.querySelector('.recipe-row').style.visibility = 'visible';
+    document.querySelector('#drink-name').innerText = currentDrinkData.strDrink;
+    document.querySelector('img').style.visibility = 'visible'
+    document.querySelector('img').alt = currentDrinkData.strDrink;
+    document.querySelector('img').src = currentDrinkData.strDrinkThumb;
 }
 
 function showIngredients() {
@@ -114,30 +138,33 @@ function showInstructions() {
 }
 
 function showErrorScreen() {
-    //hide drink info
-    document.querySelector('.drink-info').style.visibility = 'hidden';
+    // //show drink info
+    document.querySelector('.drink-info').style.visibility = 'visible';
 
-    //show error screen after delay
-    setTimeout(() => {
-        document.querySelector('.error-screen').style.visibility = 'visible';
-    }, 1220)
+    //change h2 to show error message
+    document.querySelector('#drink-name').innerText = 'Not found. Please try again.'
+    document.querySelector('.recipe-row').style.visibility = 'hidden';
+    document.querySelector('img').style.visibility = 'hidden';
+
+    /* show error screen after delay
+     setTimeout(() => {
+         document.querySelector('.error-screen').style.visibility = 'visible';
+     }, 1220) */
 
 }
-
-
 
 /*
 
 CURRENTLY WORKING ON:
-- recycling search button 
-- loading error message (see above comment in loadDrink function) --> include search button for error !! clear drink value after searching so I can recycle search button
+-cycle through drinks - carousel of drinks (if you don't put 0 for array)
 
 OBJECTIVES:
--cycle through drinks - carousel of drinks (if you don't put 0 for array)
 - text shadows for text
 
 COMPLETED:
 -want drink w/ spaces to be searchable
 (loading screen effect)
 - loading ingredients & instructions: https://stackoverflow.com/questions/17773938/add-a-list-item-through-javascript
+- recycling search button 
+- loading error message (see above comment in loadDrink function) --> include search button for error !! clear drink value after searching so I can recycle search button
 */

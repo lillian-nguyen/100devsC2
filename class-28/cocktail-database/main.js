@@ -174,13 +174,10 @@ function rotateRecipes(drinkObjects) {
 
 CURRENTLY WORKING ON:
 - initial search input seems to be buggy (searching whiskey failed)
--cycle through drinks - carousel of drinks (if you don't put 0 for array)
-- multiple clicks for arrow functions
 
 OBJECTIVES:
 - media queries 
 - fix loading screen (bonus: loading screen in between searches)
-- arrow icons can cycle through next drink if multiple in list
 
 COMPLETED:
 -want drink w/ spaces to be searchable
@@ -189,4 +186,5 @@ COMPLETED:
 - recycling search button 
 - loading error message (see above comment in loadDrink function) --> include search button for error !! clear drink value after searching so I can recycle search button
 - show the arrows if the array data is > 1 (10/21/24)
+-cycle through drinks w/ arrow icons - carousel of drinks (if you don't put 0 for array). Resolved multiple clicks for arrow icons (10/22/24)
 */

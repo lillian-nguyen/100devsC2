@@ -40,14 +40,7 @@ function getDrink() {
             drinkObjects = data.drinks;
 
             if (data.drinks !== null) {
-                // document.querySelector('#drink-name').innerText = data.drinks[0].strDrink;
-                // document.querySelector('img').alt = data.drinks[0].strDrink;
-                // document.querySelector('img').src = data.drinks[0].strDrinkThumb;
-
-                //show recipe card components
-                showIngredients();
-                showInstructions();
-                getRecipeCard();
+                displayDrink();
 
             } else if (data.drinks == null) {
                 showErrorScreen();
@@ -58,6 +51,13 @@ function getDrink() {
             console.log(`error ${err}`);
             showErrorScreen();
         });
+}
+
+function displayDrink() {
+    showIngredients();
+    showInstructions();
+    getRecipeCard();
+    rotateRecipes();
 }
 
 function updateSearch() {
@@ -89,15 +89,13 @@ function getRecipeCard() {
     document.querySelector('img').style.visibility = 'visible'
     document.querySelector('img').alt = currentDrinkData.strDrink;
     document.querySelector('img').src = currentDrinkData.strDrinkThumb;
-
-    rotateRecipes();
 }
 
 function showIngredients() {
     if (currentDrinkData) {
         // target #ingredientsList element
         const ingredientsList = document.getElementById('ingredientsList');
-        ingredientsList.innerHTML = ''; //clear previous ingredients
+        ingredientsList.innerText = ''; //clear previous ingredients
 
         // loop through ingredients to create list items
         for (let i = 1; i <= 15; i++) {
@@ -121,7 +119,7 @@ function showIngredients() {
 function showInstructions() {
     // target #instructionSteps element
     let instructionsList = document.getElementById('instructionSteps');
-    instructionsList.innerHTML = ''; //clear previous instructions
+    instructionsList.innerText = ''; //clear previous instructions
 
     // create arr variable for instructions (separated by '.')
     let instructionsArr = currentDrinkData.strInstructions.split('.').filter(e => e !== '');
@@ -148,13 +146,42 @@ function showErrorScreen() {
     document.querySelector('img').style.visibility = 'hidden';
 }
 
+
+let index = 0;
+
 function rotateRecipes() {
+    //create variables for arrows
+    const leftArrow = document.querySelector('.ph-arrow-circle-left');
+    const rightArrow = document.querySelector('.ph-arrow-circle-right');
+    //event listeners to arrows, click
+
+    leftArrow.addEventListener('click', () => {
+        //function to find index 
+        index = (index - 1 + drinkObjects.length) % drinkObjects.length;
+        currentDrinkData = drinkObjects[index];
+        displayDrink()
+        console.log(index)
+        console.log(currentDrinkData)
+    })
+
+    rightArrow.addEventListener('click', () => {
+        //function to find index 
+        index = (index + 1) % drinkObjects.length;
+        currentDrinkData = drinkObjects[index];
+        displayDrink()
+        console.log(currentDrinkData)
+    })
+
+    //display drink and passed in one drink 
+
+    // console.log(Object.keys(drinkObjects).length)
+
     if (Object.keys(drinkObjects).length > 1) {
-        document.querySelector('.ph-arrow-circle-left').style.visibility = 'visible';
-        document.querySelector('.ph-arrow-circle-right').style.visibility = 'visible';
+        leftArrow.style.visibility = 'visible';
+        rightArrow.style.visibility = 'visible';
     } else {
-        document.querySelector('.ph-arrow-circle-left').style.visibility = 'hidden';
-        document.querySelector('.ph-arrow-circle-right').style.visibility = 'hidden';
+        leftArrow.style.visibility = 'hidden';
+        rightArrow.style.visibility = 'hidden';
     }
 }
 
@@ -164,6 +191,7 @@ CURRENTLY WORKING ON:
 - initial search input seems to be buggy (searching whiskey failed)
 - show the arrows if the array data is > 1
 -cycle through drinks - carousel of drinks (if you don't put 0 for array)
+- multiple clicks for arrows (console logs but skips drinks)
 
 OBJECTIVES:
 - media queries 

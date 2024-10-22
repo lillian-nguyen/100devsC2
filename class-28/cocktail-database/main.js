@@ -1,16 +1,5 @@
-//create global variable for drink data
-let currentDrinkData = null;
 //global variable for search input
 let drink = null;
-//create global variable for general drink object
-let drinkObjects = null;
-
-//event listener for .search button
-// const searchButtons = document.querySelectorAll('.search-button');
-
-// searchButtons.forEach(button => {
-//     button.addEventListener('click', getDrink);
-// })
 
 const initialSearch = document.querySelector('.initial-button')
 initialSearch.addEventListener('click', getDrink)
@@ -35,19 +24,12 @@ function getDrink() {
         .then(res => res.json()) //parse response as JSON
         .then(data => {
 
-            //store drink data in global variable
-            currentDrinkData = data.drinks[0];
-            drinkObjects = data.drinks;
+            //store drink data in variables
+            const currentDrinkData = data.drinks[0];
+            let drinkObjects = data.drinks;
 
             if (data.drinks !== null) {
-                // document.querySelector('#drink-name').innerText = data.drinks[0].strDrink;
-                // document.querySelector('img').alt = data.drinks[0].strDrink;
-                // document.querySelector('img').src = data.drinks[0].strDrinkThumb;
-
-                //show recipe card components
-                showIngredients();
-                showInstructions();
-                getRecipeCard();
+                showDrink();
 
             } else if (data.drinks == null) {
                 showErrorScreen();
@@ -58,6 +40,14 @@ function getDrink() {
             console.log(`error ${err}`);
             showErrorScreen();
         });
+}
+
+function showDrink(currentDrinkData, drinkObjects) {
+    //show recipe card components
+    showIngredients(currentDrinkData);
+    showInstructions(currentDrinkData);
+    getRecipeCard(currentDrinkData);
+    rotateRecipes(drinkObjects)
 }
 
 function updateSearch() {
@@ -77,7 +67,7 @@ function loadingScreen() {
     }, 2000)
 }
 
-function getRecipeCard() {
+function getRecipeCard(currentDrinkData) {
 
     //drink recipe card shows up after previous disappears
     setTimeout(() => {
@@ -85,7 +75,7 @@ function getRecipeCard() {
     }, 2000)
 
     document.querySelector('.recipe-row').style.visibility = 'visible';
-    document.querySelector('#drink-name').innerText = currentDrinkData.strDrink;
+    document.querySelector('#drink-name').innerHTML = currentDrinkData.strDrink;
     document.querySelector('img').style.visibility = 'visible'
     document.querySelector('img').alt = currentDrinkData.strDrink;
     document.querySelector('img').src = currentDrinkData.strDrinkThumb;
@@ -93,11 +83,11 @@ function getRecipeCard() {
     rotateRecipes();
 }
 
-function showIngredients() {
+function showIngredients(currentDrinkData) {
     if (currentDrinkData) {
         // target #ingredientsList element
         const ingredientsList = document.getElementById('ingredientsList');
-        ingredientsList.innerHTML = ''; //clear previous ingredients
+        ingredientsList.innerText = ''; //clear previous ingredients
 
         // loop through ingredients to create list items
         for (let i = 1; i <= 15; i++) {
@@ -118,7 +108,7 @@ function showIngredients() {
     }
 }
 
-function showInstructions() {
+function showInstructions(currentDrinkData) {
     // target #instructionSteps element
     let instructionsList = document.getElementById('instructionSteps');
     instructionsList.innerHTML = ''; //clear previous instructions
@@ -148,19 +138,27 @@ function showErrorScreen() {
     document.querySelector('img').style.visibility = 'hidden';
 }
 
-function rotateRecipes() {
+function rotateRecipes(drinkObjects) {
+    //create variables for left & right arrows
+    const leftArrow = document.querySelector('.ph-arrow-circle-left');
+    const rightArrow = document.querySelector('.ph-arrow-circle-right');
     if (Object.keys(drinkObjects).length > 1) {
-        document.querySelector('.ph-arrow-circle-left').style.visibility = 'visible';
-        document.querySelector('.ph-arrow-circle-right').style.visibility = 'visible';
+        leftArrow.style.visibility = 'visible';
+        rightArrow.style.visibility = 'visible';
     } else {
-        document.querySelector('.ph-arrow-circle-left').style.visibility = 'hidden';
-        document.querySelector('.ph-arrow-circle-right').style.visibility = 'hidden';
+        leftArrow.style.visibility = 'hidden';
+        rightArrow.style.visibility = 'hidden';
     }
 }
 
 /*
 
 CURRENTLY WORKING ON:
+- no global variables
+
+
+
+
 - initial search input seems to be buggy (searching whiskey failed)
 - show the arrows if the array data is > 1
 -cycle through drinks - carousel of drinks (if you don't put 0 for array)

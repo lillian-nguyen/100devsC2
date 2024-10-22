@@ -22,6 +22,7 @@ body {
     align-items: center;
     background-image: url('/cocktail-database/jakub-dziubak-drink.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: 40% 35.5%;
 }
 
@@ -57,7 +58,6 @@ body {
     padding-bottom: 0.5rem;
     font-size: 1.4rem;
     text-shadow: rgb(54, 41, 30) 0.3px 0 0.1px;
-    ;
 }
 
 .instructions input,
@@ -100,6 +100,29 @@ body {
     color: palegoldenrod;
     background-color: rgba(153, 161, 88, 95%);
     text-shadow: rgb(54, 41, 30) 2px 0 10px;
+}
+
+.img-arrows {
+    display: flex;
+}
+
+.ph-light {
+    margin-top: 10%;
+    font-size: 3.3rem;
+    color: rgb(75, 79, 43);
+    visibility: hidden;
+}
+
+.ph-light:hover {
+    cursor: pointer;
+}
+
+.ph-arrow-circle-left {
+    margin-left: 25%;
+}
+
+.ph-arrow-circle-right {
+    margin-right: 25%;
 }
 
 
@@ -147,12 +170,6 @@ body {
 .search-input {
     margin-top: 6rem;
 }
-
-/* error screen header adjustment */
-.lowerh2 {
-    margin: auto;
-}
-
 
 /******************************************
   /* ADDITIONAL STYLES / NOTES

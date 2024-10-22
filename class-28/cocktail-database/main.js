@@ -1,5 +1,9 @@
 //create global variable for drink data
 let currentDrinkData = null;
+//global variable for search input
+let drink = null;
+//create global variable for general drink object
+let drinkObjects = null;
 
 //event listener for .search button
 // const searchButtons = document.querySelectorAll('.search-button');
@@ -17,9 +21,6 @@ searchAgain.forEach(button => {
     button.addEventListener('click', updateSearch);
 })
 
-//global variable for search input
-let drink = null;
-
 
 function getDrink() {
     //get value from input
@@ -36,10 +37,9 @@ function getDrink() {
 
             //store drink data in global variable
             currentDrinkData = data.drinks[0];
+            drinkObjects = data.drinks;
 
             if (data.drinks !== null) {
-                console.log(data.drinks);
-
                 // document.querySelector('#drink-name').innerText = data.drinks[0].strDrink;
                 // document.querySelector('img').alt = data.drinks[0].strDrink;
                 // document.querySelector('img').src = data.drinks[0].strDrinkThumb;
@@ -63,7 +63,6 @@ function getDrink() {
 function updateSearch() {
     let newSearch = document.querySelector('.search-input').value;
     document.querySelector('.initial-input').value = newSearch;
-    console.log(drink)
     getDrink();
 }
 
@@ -75,7 +74,7 @@ function loadingScreen() {
     //loading screen disappears after 2 seconds
     setTimeout(() => {
         document.querySelector('.intro-container').style.visibility = 'hidden';
-    }, 800)
+    }, 2000)
 }
 
 function getRecipeCard() {
@@ -83,13 +82,15 @@ function getRecipeCard() {
     //drink recipe card shows up after previous disappears
     setTimeout(() => {
         document.querySelector('.drink-info').style.visibility = 'visible';
-    }, 1220)
+    }, 2000)
 
     document.querySelector('.recipe-row').style.visibility = 'visible';
     document.querySelector('#drink-name').innerText = currentDrinkData.strDrink;
     document.querySelector('img').style.visibility = 'visible'
     document.querySelector('img').alt = currentDrinkData.strDrink;
     document.querySelector('img').src = currentDrinkData.strDrinkThumb;
+
+    rotateRecipes();
 }
 
 function showIngredients() {
@@ -145,21 +146,29 @@ function showErrorScreen() {
     document.querySelector('#drink-name').innerText = 'Not found. Please try again.'
     document.querySelector('.recipe-row').style.visibility = 'hidden';
     document.querySelector('img').style.visibility = 'hidden';
+}
 
-    /* show error screen after delay
-     setTimeout(() => {
-         document.querySelector('.error-screen').style.visibility = 'visible';
-     }, 1220) */
-
+function rotateRecipes() {
+    if (Object.keys(drinkObjects).length > 1) {
+        document.querySelector('.ph-arrow-circle-left').style.visibility = 'visible';
+        document.querySelector('.ph-arrow-circle-right').style.visibility = 'visible';
+    } else {
+        document.querySelector('.ph-arrow-circle-left').style.visibility = 'hidden';
+        document.querySelector('.ph-arrow-circle-right').style.visibility = 'hidden';
+    }
 }
 
 /*
 
 CURRENTLY WORKING ON:
+- initial search input seems to be buggy (searching whiskey failed)
+- show the arrows if the array data is > 1
 -cycle through drinks - carousel of drinks (if you don't put 0 for array)
 
 OBJECTIVES:
-- text shadows for text
+- media queries 
+- fix loading screen (bonus: loading screen in between searches)
+- arrow icons can cycle through next drink if multiple in list
 
 COMPLETED:
 -want drink w/ spaces to be searchable

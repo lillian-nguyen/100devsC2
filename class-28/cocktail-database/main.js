@@ -1,16 +1,5 @@
-//create global variable for drink data
-let currentDrinkData = null;
 //global variable for search input
 let drink = null;
-//create global variable for general drink object
-let drinkObjects = null;
-
-//event listener for .search button
-// const searchButtons = document.querySelectorAll('.search-button');
-
-// searchButtons.forEach(button => {
-//     button.addEventListener('click', getDrink);
-// })
 
 const initialSearch = document.querySelector('.initial-button')
 initialSearch.addEventListener('click', getDrink)
@@ -24,23 +13,23 @@ searchAgain.forEach(button => {
 
 function getDrink() {
     //get value from input
-    drink = document.querySelector('.initial-input').value;
+    let firstSearch = document.querySelector('.initial-input').value;
 
-    console.log(`searching for: ${drink}`)
+    console.log(`searching for: ${firstSearch}`)
 
     //show loading screen for 2 seconds
     loadingScreen();
 
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${firstSearch}`)
         .then(res => res.json()) //parse response as JSON
         .then(data => {
 
-            //store drink data in global variable
-            currentDrinkData = data.drinks[0];
-            drinkObjects = data.drinks;
+            //store drink data in variables
+            const currentDrinkData = data.drinks[0];
+            let drinkObjects = data.drinks;
 
             if (data.drinks !== null) {
-                displayDrink();
+                showDrink(currentDrinkData, drinkObjects)
 
             } else if (data.drinks == null) {
                 showErrorScreen();
@@ -53,11 +42,13 @@ function getDrink() {
         });
 }
 
-function displayDrink() {
-    showIngredients();
-    showInstructions();
-    getRecipeCard();
-    rotateRecipes();
+function showDrink(currentDrinkData, drinkObjects) {
+    //show recipe card components
+    showIngredients(currentDrinkData);
+    showInstructions(currentDrinkData);
+    getRecipeCard(currentDrinkData);
+    rotateRecipes(drinkObjects);
+    console.log(currentDrinkData)
 }
 
 function updateSearch() {
@@ -77,13 +68,12 @@ function loadingScreen() {
     }, 2000)
 }
 
-function getRecipeCard() {
+function getRecipeCard(currentDrinkData) {
 
     //drink recipe card shows up after previous disappears
     setTimeout(() => {
         document.querySelector('.drink-info').style.visibility = 'visible';
     }, 2000)
-
     document.querySelector('.recipe-row').style.visibility = 'visible';
     document.querySelector('#drink-name').innerText = currentDrinkData.strDrink;
     document.querySelector('img').style.visibility = 'visible'
@@ -91,7 +81,7 @@ function getRecipeCard() {
     document.querySelector('img').src = currentDrinkData.strDrinkThumb;
 }
 
-function showIngredients() {
+function showIngredients(currentDrinkData) {
     if (currentDrinkData) {
         // target #ingredientsList element
         const ingredientsList = document.getElementById('ingredientsList');
@@ -105,7 +95,7 @@ function showIngredients() {
             // add ingredient if present
             if (ingredient) {
                 const ingredientListItem = document.createElement('li');
-                ingredientListItem.innerText = `${amount ? amount + ' ' : ''}${ingredient}`;
+                ingredientListItem.innerHTML = `${amount ? amount + ' ' : ''}${ingredient}`;
                 ingredientsList.appendChild(ingredientListItem);
                 ingredientListItem.style.width = '75%';
                 ingredientsList.style.margin = '0 0 0 2.5rem'
@@ -116,7 +106,7 @@ function showIngredients() {
     }
 }
 
-function showInstructions() {
+function showInstructions(currentDrinkData) {
     // target #instructionSteps element
     let instructionsList = document.getElementById('instructionSteps');
     instructionsList.innerText = ''; //clear previous instructions
@@ -147,32 +137,29 @@ function showErrorScreen() {
 }
 
 
+//carousel option shows if there are more than 1 search results
+// assign variable for index
 let index = 0;
 
-function rotateRecipes() {
-    //create variables for arrows
+function rotateRecipes(drinkObjects) {
+    //create variables for left & right arrows
     const leftArrow = document.querySelector('.ph-arrow-circle-left');
     const rightArrow = document.querySelector('.ph-arrow-circle-right');
-    //event listeners to arrows, click
 
+    //event listeners for arrows
     leftArrow.addEventListener('click', () => {
-        //function to find index 
+        //function to find index
         index = (index - 1 + drinkObjects.length) % drinkObjects.length;
         currentDrinkData = drinkObjects[index];
-        displayDrink()
-        console.log(index)
-        console.log(currentDrinkData)
+        showDrink(currentDrinkData);
     })
 
     rightArrow.addEventListener('click', () => {
         //function to find index 
         index = (index + 1) % drinkObjects.length;
         currentDrinkData = drinkObjects[index];
-        displayDrink()
-        console.log(currentDrinkData)
+        showDrink(currentDrinkData);
     })
-
-    //display drink and passed in one drink 
 
     // console.log(Object.keys(drinkObjects).length)
 
@@ -189,14 +176,10 @@ function rotateRecipes() {
 
 CURRENTLY WORKING ON:
 - initial search input seems to be buggy (searching whiskey failed)
-- show the arrows if the array data is > 1
--cycle through drinks - carousel of drinks (if you don't put 0 for array)
-- multiple clicks for arrows (console logs but skips drinks)
 
 OBJECTIVES:
 - media queries 
 - fix loading screen (bonus: loading screen in between searches)
-- arrow icons can cycle through next drink if multiple in list
 
 COMPLETED:
 -want drink w/ spaces to be searchable
@@ -204,4 +187,6 @@ COMPLETED:
 - loading ingredients & instructions: https://stackoverflow.com/questions/17773938/add-a-list-item-through-javascript
 - recycling search button 
 - loading error message (see above comment in loadDrink function) --> include search button for error !! clear drink value after searching so I can recycle search button
+- show the arrows if the array data is > 1 (10/21/24)
+-cycle through drinks w/ arrow icons - carousel of drinks (if you don't put 0 for array). Resolved multiple clicks for arrow icons (10/22/24)
 */

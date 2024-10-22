@@ -1,7 +1,5 @@
 //global variable for search input
 let drink = null;
-let currentDrinkData = null;
-let drinkObjects = null;
 
 const initialSearch = document.querySelector('.initial-button')
 initialSearch.addEventListener('click', getDrink)
@@ -15,23 +13,23 @@ searchAgain.forEach(button => {
 
 function getDrink() {
     //get value from input
-    drink = document.querySelector('.initial-input').value;
+    let firstSearch = document.querySelector('.initial-input').value;
 
-    console.log(`searching for: ${drink}`)
+    console.log(`searching for: ${firstSearch}`)
 
     //show loading screen for 2 seconds
     loadingScreen();
 
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${firstSearch}`)
         .then(res => res.json()) //parse response as JSON
         .then(data => {
 
             //store drink data in variables
-            currentDrinkData = data.drinks[0];
-            drinkObjects = data.drinks;
+            const currentDrinkData = data.drinks[0];
+            let drinkObjects = data.drinks;
 
             if (data.drinks !== null) {
-                showDrink();
+                showDrink(currentDrinkData, drinkObjects)
 
             } else if (data.drinks == null) {
                 showErrorScreen();
@@ -76,14 +74,11 @@ function getRecipeCard(currentDrinkData) {
     setTimeout(() => {
         document.querySelector('.drink-info').style.visibility = 'visible';
     }, 2000)
-
     document.querySelector('.recipe-row').style.visibility = 'visible';
-    document.querySelector('#drink-name').innerHTML = currentDrinkData.strDrink;
+    document.querySelector('#drink-name').innerText = currentDrinkData.strDrink;
     document.querySelector('img').style.visibility = 'visible'
     document.querySelector('img').alt = currentDrinkData.strDrink;
     document.querySelector('img').src = currentDrinkData.strDrinkThumb;
-
-    rotateRecipes();
 }
 
 function showIngredients(currentDrinkData) {
@@ -141,10 +136,31 @@ function showErrorScreen() {
     document.querySelector('img').style.visibility = 'hidden';
 }
 
+
+//carousel option shows if there are more than 1 search results
+// assign variable for index
+let index = 0;
+
 function rotateRecipes(drinkObjects) {
     //create variables for left & right arrows
     const leftArrow = document.querySelector('.ph-arrow-circle-left');
     const rightArrow = document.querySelector('.ph-arrow-circle-right');
+
+    //event listeners for arrows
+    leftArrow.addEventListener('click', () => {
+        //function to find index
+        index = (index - 1 + drinkObjects.length) % drinkObjects.length;
+        currentDrinkData = drinkObjects[index];
+        showDrink(currentDrinkData);
+    })
+
+    rightArrow.addEventListener('click', () => {
+        //function to find index 
+        index = (index + 1) % drinkObjects.length;
+        currentDrinkData = drinkObjects[index];
+        showDrink(currentDrinkData);
+    })
+
     if (Object.keys(drinkObjects).length > 1) {
         leftArrow.style.visibility = 'visible';
         rightArrow.style.visibility = 'visible';
@@ -157,14 +173,9 @@ function rotateRecipes(drinkObjects) {
 /*
 
 CURRENTLY WORKING ON:
-- no global variables
-
-
-
-
 - initial search input seems to be buggy (searching whiskey failed)
-- show the arrows if the array data is > 1
 -cycle through drinks - carousel of drinks (if you don't put 0 for array)
+- multiple clicks for arrow functions
 
 OBJECTIVES:
 - media queries 
@@ -177,4 +188,5 @@ COMPLETED:
 - loading ingredients & instructions: https://stackoverflow.com/questions/17773938/add-a-list-item-through-javascript
 - recycling search button 
 - loading error message (see above comment in loadDrink function) --> include search button for error !! clear drink value after searching so I can recycle search button
+- show the arrows if the array data is > 1 (10/21/24)
 */

@@ -1,5 +1,7 @@
 //global variable for search input
 let drink = null;
+let currentDrinkData = null;
+let drinkObjects = null;
 
 const initialSearch = document.querySelector('.initial-button')
 initialSearch.addEventListener('click', getDrink)
@@ -25,8 +27,8 @@ function getDrink() {
         .then(data => {
 
             //store drink data in variables
-            const currentDrinkData = data.drinks[0];
-            let drinkObjects = data.drinks;
+            currentDrinkData = data.drinks[0];
+            drinkObjects = data.drinks;
 
             if (data.drinks !== null) {
                 showDrink();
@@ -47,7 +49,8 @@ function showDrink(currentDrinkData, drinkObjects) {
     showIngredients(currentDrinkData);
     showInstructions(currentDrinkData);
     getRecipeCard(currentDrinkData);
-    rotateRecipes(drinkObjects)
+    rotateRecipes(drinkObjects);
+    console.log(currentDrinkData)
 }
 
 function updateSearch() {
@@ -87,7 +90,7 @@ function showIngredients(currentDrinkData) {
     if (currentDrinkData) {
         // target #ingredientsList element
         const ingredientsList = document.getElementById('ingredientsList');
-        ingredientsList.innerText = ''; //clear previous ingredients
+        ingredientsList.innerHTML = ''; //clear previous ingredients
 
         // loop through ingredients to create list items
         for (let i = 1; i <= 15; i++) {
@@ -97,7 +100,7 @@ function showIngredients(currentDrinkData) {
             // add ingredient if present
             if (ingredient) {
                 const ingredientListItem = document.createElement('li');
-                ingredientListItem.innerText = `${amount ? amount + ' ' : ''}${ingredient}`;
+                ingredientListItem.innerHTML = `${amount ? amount + ' ' : ''}${ingredient}`;
                 ingredientsList.appendChild(ingredientListItem);
                 ingredientListItem.style.width = '75%';
                 ingredientsList.style.margin = '0 0 0 2.5rem'

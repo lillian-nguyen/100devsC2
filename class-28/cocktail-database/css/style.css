@@ -131,21 +131,22 @@ body {
 .drink-info {
     display: flex;
     flex-direction: column;
-    width: 120rem;
-    height: 40rem;
+    width: 125rem;
+    height: 48rem;
     position: relative;
     left: -22rem;
-    top: 7rem;
+    top: -1rem;
     margin: 3% 0 0 5%;
     text-align: center;
     border: 2px solid #DDDBD7;
     background-color: rgba(174, 163, 142, 1);
     visibility: hidden;
+    border: 12px double rgba(0, 0, 0, 0.6)
 }
 
 .recipe-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 #drink-name {
@@ -159,7 +160,11 @@ body {
     font-family: "Source Code Pro", monospace;
     text-align: center;
     width: 50%;
-    padding-top: 1rem;
+    padding-top: 0.3rem;
+}
+
+.ingredients-container {
+    width: 38%;
 }
 
 .lengthen {

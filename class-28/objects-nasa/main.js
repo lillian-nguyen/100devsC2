@@ -10,11 +10,20 @@ function showPicture() {
         .then(res => res.json()) // parse response as JSON
         .then(data => {
             console.log(data);
+            if (data.media_type === 'image') {
+                document.querySelector('img').src = data.hdurl;
+            } else if (data.media_type === 'video') {
+                document.querySelector('iframe').src = data.url;
+            }
+
             document.querySelector('h2').innerText = data.title;
-            document.querySelector('img').src = data.hdurl;
             document.querySelector('h3').innerText = data.explanation;
         })
         .catch(err => {
             console.log(`error ${err}`)
         });
 }
+
+//2/3/21 (hide and show video or image. not both (can set to null for ex) -- clear out img or iframe on each load)
+//2:18:14 duplicate api template and rename card game
+// push work: make sure you're using the same deck (changes on refresh) local storage for deckId

@@ -1,0 +1,148 @@
+hmtl {
+    font-size: 62.5%;
+}
+
+body {
+    /* background: linear-gradient(#8E90A7, #505E79, #20304A); */
+    background: linear-gradient(#A3B1CF, #8281a0, #505E79);
+    background-attachment: fixed;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Work Sans", sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: 0.1rem;
+    color: #505E79;
+    padding-bottom: 1.5rem;
+}
+
+p {
+    font-family: "Merriweather", serif;
+    position: relative;
+    top: -3rem;
+    text-align: center;
+}
+
+#instructions {
+    color: whitesmoke;
+}
+
+.cookie-container {
+    height: 18%;
+    width: 67%;
+    background-color: rgba(190, 195, 204, 0.2);
+    margin: 0 auto;
+    margin-top: -3rem;
+    border: 8px double rgba(190, 195, 204, 0.3);
+}
+
+img {
+    margin: 0 auto;
+    scale: 0.8;
+}
+
+button {
+    position: relative;
+    font-family: "Work Sans", sans-serif;
+    font-size: 1.1rem;
+    top: -2.5rem;
+    left: -23rem;
+    background-color: #505E79;
+    border: #A3B1CF;
+    color: whitesmoke;
+    height: 2.5rem;
+    width: 13rem;
+    border-radius: 5%;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.shakeImg {
+    animation: shake 0.5s;
+    animation-iteration-count: 2;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+
+/* .paper {
+    position: absolute;
+    z-index: -1;
+    top: 21rem;
+    left: 33rem;
+    background-color: whitesmoke;
+    width: 40%;
+    height: 4rem;
+} */
+
+.paper {
+    position: absolute;
+    z-index: -1;
+    top: 21rem;
+    left: 37rem;
+    height: 5.2rem;
+    width: 39%;
+    text-align: center;
+    background-color: whitesmoke;
+    opacity: 0;
+}
+
+#fortune {
+    position: relative;
+    top: 3.5%;
+    left: 3rem;
+    width: 80%;
+}
+
+/* NOTES
+
+- photo credit: https://m.media-amazon.com/images/I/51zQCQDNlJL.jpg 
+
+*/

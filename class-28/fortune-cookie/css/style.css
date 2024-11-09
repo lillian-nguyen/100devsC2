@@ -186,7 +186,307 @@ button:hover {
     }
 }
 
+@media (min-width: 697px) and (max-width: 743px) {
+    .cookie-container {
+        height: 18%;
+        width: 94%;
+    }
 
+    img {
+        margin-left: -6rem;
+    }
+
+    .paper {
+        left: 18rem;
+        top: 22rem;
+        width: 55%;
+        height: 6.6rem;
+    }
+
+    button {
+        left: -24rem;
+    }
+}
+
+@media (min-width: 664px) and (max-width: 696px) {
+    h1 {
+        padding-bottom: 0.8rem;
+    }
+
+    .cookie-container {
+        position: absolute;
+        height: 60vh;
+        width: 94%;
+    }
+
+    img {
+        margin-left: -7rem;
+        margin-top: -2.5rem;
+    }
+
+    .paper {
+        left: 15.7rem;
+        top: 9rem;
+        width: 58%;
+        height: 6.6rem;
+    }
+
+    button {
+        left: -22rem;
+    }
+}
+
+@media (min-width: 589px) and (max-width: 663px) {
+    h1 {
+        padding-bottom: 0.8rem;
+    }
+
+    .cookie-container {
+        position: absolute;
+        height: 60vh;
+        width: 95%;
+    }
+
+    img {
+        margin-left: -7rem;
+        margin-top: -2.5rem;
+    }
+
+    .paper {
+        left: 15.7rem;
+        top: 9rem;
+        width: 57%;
+        height: 6.6rem;
+    }
+
+    button {
+        position: absolute;
+        left: 3rem;
+        top: 23rem;
+    }
+}
+
+@media (min-width: 475px) and (max-width: 588px) {
+    h1 {
+        padding-bottom: 0.8rem;
+        font-size: 3rem;
+    }
+
+    #instructions {
+        padding-top: 1rem;
+    }
+
+    .cookie-container {
+        position: absolute;
+        height: 60vh;
+        width: 95%;
+        top: 27%;
+    }
+
+    img {
+        margin-left: -8rem;
+        margin-top: -2.5rem;
+        scale: 0.6;
+    }
+
+    .paper {
+        left: 12rem;
+        top: 9rem;
+        width: 57%;
+        height: 6.6rem;
+    }
+
+    #fortune {
+        font-size: 0.9rem;
+        margin-top: 0.6rem;
+        width: 75%;
+        margin-left: 1rem;
+    }
+
+    button {
+        position: absolute;
+        left: 3rem;
+        top: 23rem;
+    }
+}
+
+@media (min-width: 424px) and (max-width: 474px) {
+    h1 {
+        padding-bottom: 0.8rem;
+        font-size: 3rem;
+    }
+
+    #instructions {
+        padding-top: 1rem;
+    }
+
+    .cookie-container {
+        position: absolute;
+        height: 60vh;
+        width: 95%;
+        top: 27%;
+    }
+
+    img {
+        margin-left: -10rem;
+        margin-top: -2.5rem;
+        scale: 0.5;
+    }
+
+    .paper {
+        left: 9rem;
+        top: 9rem;
+        width: 65%;
+        height: 6.6rem;
+    }
+
+    #fortune {
+        font-size: 0.9rem;
+        margin-top: 0.7rem;
+        width: 78%;
+        margin-left: 0.3rem;
+    }
+
+    button {
+        position: absolute;
+        left: 3rem;
+        top: 23rem;
+    }
+}
+
+@media (min-width: 398px) and (max-width: 423px) {
+    h1 {
+        padding-bottom: 0.8rem;
+        font-size: 3rem;
+    }
+
+    #instructions {
+        padding-top: 1rem;
+    }
+
+    .cookie-container {
+        position: absolute;
+        height: 60vh;
+        width: 95%;
+        top: 30%;
+    }
+
+    img {
+        margin-left: -11rem;
+        margin-top: -2.5rem;
+        scale: 0.4;
+    }
+
+    .paper {
+        left: 7rem;
+        top: 9rem;
+        width: 65%;
+        height: 5.8rem;
+    }
+
+    #fortune {
+        font-size: 0.8rem;
+        margin-top: 0.7rem;
+        width: 79%;
+        margin-left: -0.3rem;
+    }
+
+    button {
+        position: absolute;
+        left: 3rem;
+        top: 20rem;
+    }
+}
+
+@media (min-width: 374px) and (max-width: 397px) {
+    h1 {
+        padding-bottom: 0.8rem;
+        font-size: 2.8rem;
+    }
+
+    #instructions {
+        padding-top: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .cookie-container {
+        position: absolute;
+        height: 60vh;
+        width: 95%;
+        top: 30%;
+    }
+
+    img {
+        margin-left: -11rem;
+        margin-top: -2.5rem;
+        scale: 0.4;
+    }
+
+    .paper {
+        left: 7rem;
+        top: 9rem;
+        width: 65%;
+        height: 5.8rem;
+    }
+
+    #fortune {
+        font-size: 0.8rem;
+        margin-top: 0.7rem;
+        width: 79%;
+        margin-left: -0.3rem;
+    }
+
+    button {
+        position: absolute;
+        left: 3rem;
+        top: 20rem;
+    }
+}
+
+@media (max-width: 373px) {
+    h1 {
+        padding-bottom: 0.8rem;
+        font-size: 2.8rem;
+    }
+
+    #instructions {
+        padding-top: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .cookie-container {
+        position: absolute;
+        height: 60vh;
+        width: 95%;
+        top: 37%;
+    }
+
+    img {
+        margin-left: -12rem;
+        margin-top: -2.5rem;
+        scale: 0.35;
+    }
+
+    .paper {
+        left: 6rem;
+        top: 9.6rem;
+        width: 69%;
+        height: 4.8rem;
+    }
+
+    #fortune {
+        font-size: 0.7rem;
+        margin-top: 0.7rem;
+        width: 79%;
+        margin-left: -0.5rem;
+    }
+
+    button {
+        position: absolute;
+        left: 3rem;
+        top: 18rem;
+    }
+}
 
 /* NOTES
 

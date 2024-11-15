@@ -1,0 +1,72 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/******************************************
+  /* LAYOUT
+  /*******************************************/
+
+body {
+  background-image: url(/harry-potter/img/magic.jpg);
+  background-position: 22% 18%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.intro-container {
+  position: relative;
+  top: 1rem;
+  width: 80dvw;
+  height: 18dvh;
+  margin: 0 auto;
+  margin-top: 1rem;
+  text-align: center;
+  background-color: transparent;
+  border: 2px solid white;
+}
+
+.intro-text {
+  position: relative;
+  top: -0.8rem;
+  width: 98%;
+  height: 85%;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+h1 {
+  position: relative;
+  top: 0.9rem;
+  font-size: 1rem;
+}
+
+.intro-text p {
+  margin-top: -0.1rem;
+  padding-bottom: 0.4rem;
+  font-size: 1.5rem;
+}
+
+/* crests */
+
+.house-container {
+  position: relative;
+  top: 5rem;
+  text-align: center;
+}
+
+.crest {
+  transform: scale(0.7);
+  margin-left: -2.5rem;
+}
+
+.crest:hover {
+  cursor: pointer;
+}
+
+
+/* bg img: https://unsplash.com/photos/cards-and-candle-on-black-background-6uSUUyjTwSM */

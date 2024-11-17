@@ -55,8 +55,12 @@ h1 {
 
 .house-container {
   position: relative;
-  top: 5rem;
+  /* top: 5rem; */
   text-align: center;
+}
+
+.originalCrestPosition {
+  top: 5rem;
 }
 
 .crest {
@@ -66,6 +70,26 @@ h1 {
 
 .crest:hover {
   cursor: pointer;
+}
+
+.columnCrests {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* character container (div) */
+.character-container {
+  position: absolute;
+  margin: 0 auto;
+  left: 10%;
+  top: 23.5%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 70dvh;
+  width: 80dvw;
+  background-color: pink;
 }
 
 

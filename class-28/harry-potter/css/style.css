@@ -73,24 +73,44 @@ h1 {
 }
 
 .columnCrests {
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column;
+  transform: scale(0.55);
+  top: -6rem;
+  left: -1rem;
+}
+
+.hidden {
+  display: none;
 }
 
 /* character container (div) */
-.character-container {
+#character-container {
   position: absolute;
   margin: 0 auto;
   left: 10%;
   top: 23.5%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
+  text-align: center;
   height: 70dvh;
   width: 80dvw;
+  overflow: hidden scroll;
+  scrollbar-width: thin;
   background-color: pink;
 }
 
+.character-space {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.character-space img {
+  width: 15rem;
+  height: 20rem;
+}
 
 /* bg img: https://unsplash.com/photos/cards-and-candle-on-black-background-6uSUUyjTwSM */

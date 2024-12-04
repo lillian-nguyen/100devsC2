@@ -11,10 +11,13 @@ crests.forEach(crest => {
         let currentCrest = ''
 
         crests.forEach(crest => {
-            //clicking a crest adds the flex-direction: column property
-            document.querySelector('.house-container').classList.add('columnCrests');
+            //clicking hides horizontal crest view but shows column view
+            document.querySelector('.columnCrests').classList.remove('hidden');
+            document.querySelector('.house-container').classList.add('hidden');
 
             clickedCrest == 'gryffindor' ? currentCrest = 'gryffindor' : clickedCrest == 'ravenclaw' ? currentCrest = 'ravenclaw' : clickedCrest == 'slytherin' ? currentCrest = 'slytherin' : currentCrest = 'hufflepuff';
+
+            console.log(currentCrest)
         })
         runHouse(currentCrest)
     })
@@ -40,22 +43,78 @@ function showCrests() {
     })
 }
 
+//get data 
 function runHouse(currentCrest) {
     fetch(`https://hp-api.herokuapp.com/api/characters/house/${currentCrest}`)
         .then(res => res.json()) //parse response as JSON
         .then(data => {
+            let dataInfo = data;
             console.log(data)
+
+            showPhotos(dataInfo);
         })
         .catch(err => {
             console.log(`error ${err}`);
         });
+};
+
+function showPhotos(dataInfo) {
+    //declare variable for + clear character space container
+    let characterSpace = document.querySelector('.character-space');
+    characterSpace.innerHTML = '';
+
+    //loop through array to get character names
+    for (let i = 0; i < 48; i++) {
+        const characterName = dataInfo[i].name;
+        const characterImgSrc = dataInfo[i].image;
+        console.log(characterName);
+
+        //add character name if present
+        if (characterName) {
+            const characterNameEntry = document.createElement('h4');
+            characterNameEntry.innerHTML = characterName;
+            characterSpace.appendChild(characterNameEntry)
+        }
+
+        if (characterImgSrc) {
+            const characterImg = document.createElement('img');
+            characterImg.src = characterImgSrc;
+            characterSpace.appendChild(characterImg);
+        }
+    }
+
+
 }
 
-/*
+// function showIngredients(currentDrinkData) {
+//     if (currentDrinkData) {
+//         // target #ingredientsList element
+//         const ingredientsList = document.getElementById('ingredientsList');
+//         ingredientsList.innerText = ''; //clear previous ingredients
 
+//         // loop through ingredients to create list items
+//         for (let i = 1; i <= 15; i++) {
+//             const ingredient = currentDrinkData[`strIngredient${i}`];
+//             const amount = currentDrinkData[`strMeasure${i}`];
+
+//             // add ingredient if present
+//             if (ingredient) {
+//                 const ingredientListItem = document.createElement('li');
+//                 ingredientListItem.innerHTML = `${amount ? amount + ' ' : ''}${ingredient}`;
+//                 ingredientsList.appendChild(ingredientListItem);
+//                 ingredientListItem.style.width = '75%';
+//                 ingredientsList.style.margin = '0 0 0 2.5rem'
+//             }
+//         }
+//     } else {
+//         console.log('no drink data')
+//     }
+
+
+/*
 CURRENTLY WORKING ON:
-- resize and reposition column crests
-- pull name and img data 
+
+- trying to use appendChild for different div containers, where name and img are in html (so I can wrap images instead of having them all centered)
 - get backup photo if img blank
 
 OBJECTIVES:
@@ -66,4 +125,6 @@ OBJECTIVES:
 COMPLETED:
 - 11/14/24: changing opacity of other houses on hover
 - 11/15/24: getting data back for characters via checkclick/runhouse functions
+- 12/03/24: resize and reposition column crests
+- 12/03/24: pull name and img data 
 */

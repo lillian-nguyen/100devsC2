@@ -61,7 +61,9 @@ function runHouse(currentCrest) {
 function showPhotos(dataInfo) {
     //declare variable for + clear character space container
     let characterSpace = document.querySelector('.character-space');
+    let characterPhoto = document.querySelector('.character-pic');
     characterSpace.innerHTML = '';
+    characterPhoto.innerHTML = '';
 
     //loop through array to get character names
     for (let i = 0; i < 48; i++) {
@@ -70,21 +72,25 @@ function showPhotos(dataInfo) {
         console.log(characterName);
 
         //add character name if present
-        if (characterName) {
+        if (characterName && characterImgSrc) {
             const characterNameEntry = document.createElement('h4');
             characterNameEntry.innerHTML = characterName;
-            characterSpace.appendChild(characterNameEntry)
+            characterSpace.appendChild(characterNameEntry);
         }
 
         if (characterImgSrc) {
             const characterImg = document.createElement('img');
             characterImg.src = characterImgSrc;
-            characterSpace.appendChild(characterImg);
+            characterPhoto.appendChild(characterImg);
         }
     }
-
-
 }
+
+// <!-- <div class="yearbook-view">
+// <div id="character-container">
+//     <div class="character-space"></div>
+// </div>
+// </div> -->
 
 // function showIngredients(currentDrinkData) {
 //     if (currentDrinkData) {

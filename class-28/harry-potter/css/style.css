@@ -88,29 +88,52 @@ h1 {
 /* character container (div) */
 #character-container {
   position: absolute;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   left: 10%;
   top: 23.5%;
   display: flex;
   justify-content: space-evenly;
-  flex-wrap: wrap;
   text-align: center;
+  /* justify-content: space-evenly;
+  flex-wrap: wrap; */
   height: 70dvh;
   width: 80dvw;
   overflow: hidden scroll;
   scrollbar-width: thin;
-  background-color: pink;
+  background-color: rgba(9, 9, 9, 0.8);
+}
+
+.character-pic {
+  flex-direction: flex;
+}
+
+.character-pic img {
+  width: 15rem;
+  height: 20rem;
 }
 
 .character-space {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   flex-direction: column;
 }
 
-.character-space img {
-  width: 15rem;
-  height: 20rem;
+.yearbook-view {
+  display: flex;
+  color: white;
 }
+
+/* <div class="yearbook-view">
+<div id="character-container">
+    <div class="character-space"></div>
+    <div class="character-pic"></div>
+</div>
+</div> */
+
+/* <div class="yearbook-view">
+<div id="character-container">
+    <div class="character-space"></div>
+</div>
+</div> */
 
 /* bg img: https://unsplash.com/photos/cards-and-candle-on-black-background-6uSUUyjTwSM */

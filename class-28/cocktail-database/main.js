@@ -17,9 +17,6 @@ function getDrink() {
 
     console.log(`searching for: ${firstSearch}`)
 
-    //show loading screen for 2 seconds
-    loadingScreen();
-
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${firstSearch}`)
         .then(res => res.json()) //parse response as JSON
         .then(data => {
@@ -55,17 +52,6 @@ function updateSearch() {
     let newSearch = document.querySelector('.search-input').value;
     document.querySelector('.initial-input').value = newSearch;
     getDrink();
-}
-
-// show loading screen text after hitting search button
-function loadingScreen() {
-    //show loading scren
-    document.querySelector('.intro-container').style.transform = 'rotateY(180deg)';
-
-    //loading screen disappears after 2 seconds
-    setTimeout(() => {
-        document.querySelector('.intro-container').style.visibility = 'hidden';
-    }, 2000)
 }
 
 function getRecipeCard(currentDrinkData) {
@@ -179,7 +165,6 @@ CURRENTLY WORKING ON:
 
 OBJECTIVES:
 - media queries 
-- fix loading screen (bonus: loading screen in between searches)
 
 COMPLETED:
 -want drink w/ spaces to be searchable

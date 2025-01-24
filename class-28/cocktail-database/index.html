@@ -16,9 +16,6 @@
 		<!-- google fonts: playfair display-->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet"> -->
-		<!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet"> -->
-		<!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"> -->
 		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,800&display=swap" rel="stylesheet">
 		<!--Google fonts: Source sans pro-->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +25,7 @@
 	</head>
 	<body>
 
-		<section class="drink-intro">
+		<section class="drink-intro container">
 			<div class="intro-container">
 				<div class="instructions">
 					<h1>Cocktail Database</h1>
@@ -36,16 +33,12 @@
 					<input type="search" name="" value="" class="initial-input" placeholder="cocktail name">
 					<button type="button" name="button" class="initial-button search-button">Search</button>
 				</div>
-
-				<div class="project-name">
-					<h1><hr class="top-border">Loading Drink...<hr class="bottom-border"></h1>
-				</div>
 		
 			</div>
 		</section>
 		
 
-		<section class="drink-info">
+		<section class="drink-info container">
 			<h2 id="drink-name">Name</h2>
 			<div class="img-arrows">
 				<i class="ph-light ph-arrow-circle-left"></i>
@@ -76,11 +69,6 @@
 </html>
 
 <!-- 
-	
-	- carousel for mult drinks w/ one ingredient
-
-	-figure out which font size I want for h1 and then put into google fonts together to get 1 link
-
 	COMPLETED: 
 	- 9/30/24: cocktail database "loading screen" with animation for title... -> then instructions + search bar
 	- 9/30/24: previous fades away and loads drink info (name, img, ingredients, & instructions)

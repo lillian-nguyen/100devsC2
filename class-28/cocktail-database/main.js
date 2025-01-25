@@ -17,9 +17,6 @@ function getDrink() {
 
     console.log(`searching for: ${firstSearch}`)
 
-    //show loading screen for 2 seconds
-    loadingScreen();
-
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${firstSearch}`)
         .then(res => res.json()) //parse response as JSON
         .then(data => {

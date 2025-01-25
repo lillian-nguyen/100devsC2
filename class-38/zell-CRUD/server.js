@@ -1,6 +1,7 @@
 //use express in server.js by requiring it
 const express = require('express');
 const app = express();
+const MongoClient = require('mongodb').MongoClient;
 
 //place this before CRUD handlers (express middleware)
 app.use(express.urlencoded({ extended: true }))
@@ -20,3 +21,10 @@ app.get('/', (req, res) => {
 app.post('/quotes', (req, res) => {
     console.log(req.body);
 });
+
+MongoClient.connect('mongodb+srv://Yoda:yodaman@cluster0.hl4oc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(client => {
+    console.log('Connected to Database');
+    const db = client.db('star-wars-quotes');
+}
+
+).catch(error => console.log(error))

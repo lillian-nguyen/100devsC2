@@ -62,7 +62,6 @@ body {
     width: 50rem;
     height: 20rem;
     /* margin: -1.8rem 0 0 -3rem; */
-    backface-visibility: hidden;
     background-color: rgba(153, 161, 88, 78%)
 }
 
@@ -207,12 +206,38 @@ body {
     .container {
         max-width: 768px;
     }
+
+    .drink-intro {
+        left: 33%;
+    }
+
+    .instructions {
+        width: 45rem;
+        height: 19rem;
+    }
+
+    .instructions p {
+        font-size: 1.2rem;
+    }
 }
 
 /* md */
 @media (max-width: 768px) {
     .container {
         max-width: 640px;
+    }
+
+    .instructions {
+        width: 40rem;
+        height: 19rem;
+    }
+
+    .instructions h1 {
+        font-size: 3rem;
+    }
+
+    .instructions p {
+        font-size: 1.1rem;
     }
 }
 
@@ -221,12 +246,30 @@ body {
     .container {
         max-width: 475px;
     }
+
+    .instructions {
+        width: 28rem;
+        height: 17rem;
+    }
+
+    .instructions h1 {
+        font-size: 2.6rem;
+    }
+
+    .instructions p {
+        font-size: 1rem;
+        padding-top: 0;
+    }
 }
 
 /* xs */
 @media (max-width: 475px) {
     .container {
         width: 100%;
+    }
+
+    .drink-intro {
+        left: 32%;
     }
 }
 

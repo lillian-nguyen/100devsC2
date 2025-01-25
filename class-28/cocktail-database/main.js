@@ -27,6 +27,7 @@ function getDrink() {
 
             if (data.drinks !== null) {
                 showDrink(currentDrinkData, drinkObjects)
+                document.querySelector('.drink-intro').style.visibility = 'hidden';
 
             } else if (data.drinks == null) {
                 showErrorScreen();

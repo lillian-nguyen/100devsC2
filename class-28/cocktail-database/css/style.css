@@ -23,7 +23,8 @@ body {
     background-image: url('/cocktail-database/jakub-dziubak-drink.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 40% 35.5%;
+    /* background-position: 40% 35.5%; */
+    background-position: center;
 }
 
 .drink-intro {

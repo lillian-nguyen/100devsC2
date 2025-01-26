@@ -17,7 +17,22 @@ MongoClient.connect('mongodb+srv://Yoda:yodaman@cluster0.hl4oc.mongodb.net/?retr
     app.use(express.json())
 
     app.put('/quotes', (req, res) => {
-        console.log(req.body)
+        quotesCollection
+            .findOneAndUpdate({ name: 'Yoda' },
+                {
+                    $set: {
+                        name: req.body.name,
+                        quote: req.body.quote,
+                    },
+                },
+                {
+                    upsert: true,
+                }
+            )
+            .then(result => {
+                res.json('Success')
+            })
+            .catch(error => console.error(error))
     })
 
     //app.get(endpoint, callback);

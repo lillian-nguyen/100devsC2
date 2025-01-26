@@ -13,12 +13,17 @@ MongoClient.connect('mongodb+srv://Yoda:yodaman@cluster0.hl4oc.mongodb.net/?retr
 
     //place this before CRUD handlers (express middleware)
     app.use(express.urlencoded({ extended: true }))
+    app.use(express.static('public'))
+    app.use(express.json())
+
+    app.put('/quotes', (req, res) => {
+        console.log(req.body)
+    })
 
     //app.get(endpoint, callback);
     app.get('/', (req, res) => {
 
         const cursor = db.collection('quotes').find();
-        console.log(cursor);
 
         db.collection('quotes')
             .find()

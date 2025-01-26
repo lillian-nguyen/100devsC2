@@ -39,7 +39,10 @@ MongoClient.connect('mongodb+srv://Yoda:yodaman@cluster0.hl4oc.mongodb.net/?retr
         quotesCollection
             .deleteOne({ name: req.body.name })
             .then(result => {
-                res.json(`Deleted Darth Vader's quote`)
+                if (result.deletedCount === 0) {
+                    return res.json('No quote to delete')
+                }
+                res.json(`Deleted Darth Vader's' quote`)
             })
             .catch(error => console.error(error))
     })

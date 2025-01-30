@@ -36,6 +36,9 @@ h1 {
     width: 7rem;
     margin: 0;
     margin-top: -1.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .player,
@@ -43,6 +46,7 @@ h1 {
     padding-left: 6rem;
     padding-right: 6rem;
     margin-top: -5rem;
+    visibility: hidden;
 }
 
 .coin {
@@ -81,6 +85,10 @@ button:hover {
     width: 6rem;
     height: 2.5rem;
     margin-left: 1rem;
+}
+
+.step2 {
+    visibility: hidden;
 }
 
 .step2 button {

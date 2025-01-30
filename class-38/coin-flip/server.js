@@ -30,12 +30,7 @@ const server = http.createServer((req, res) => {
             if (params['guess']) {
 
                 res.writeHead(200, { 'Content-Type': 'application/json' });
-                const coinOption = params['guess']; // ??? 
                 const flipResult = Math.ceil(Math.random() * 2) === 1 ? 'heads' : 'tails';
-
-                console.log(`Player Guess: ${coinOption}, Flip Result: ${flipResult}`)
-
-                const correct = coinOption == flipResult; //???
 
                 const objToJson = {
                     result: flipResult

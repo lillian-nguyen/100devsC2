@@ -29,7 +29,6 @@ function iniateGuess(event) {
     }
     //show step 2
     document.querySelector('.step2').style.visibility = 'visible';
-    console.log(playerGuess)
 }
 
 //make request to api when flip coin button clicked
@@ -44,17 +43,28 @@ function showScore() {
     flipButton.innerText = 'Flip Again';
 }
 
+let playerScore = 0;
+let computerScore = 0;
+
 async function showResult() {
-    // console.log(playerGuess);
-    // const coinOption = playerGuess;
-    // console.log(coinOption);
     const res = await fetch(`/api?guess=${playerGuess}`);
     const data = await res.json();
 
-    console.log(data);
-
     //**fill in result? coin and computer and player score 
     let coinStatus = document.querySelector('#coin-status');
-    let playerScore = document.querySelector('.player-box');
-    let computerScore = document.querySelector('.computer-box');
+    let player = document.querySelector('.player-box');
+    let computer = document.querySelector('.computer-box');
+
+    let randomizationResult = data.result;
+
+    //change coin name
+    coinStatus.innerText = `${randomizationResult}`
+
+    if (playerGuess === randomizationResult) {
+        playerScore += 1;
+        player.innerText = playerScore;
+    } else if (playerGuess !== randomizationResult) {
+        computerScore += 1;
+        computer.innerText = computerScore;
+    }
 }

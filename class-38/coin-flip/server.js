@@ -27,10 +27,9 @@ const server = http.createServer((req, res) => {
     }
     else if (page == '/api') {
         if ('guess' in params) {
-            if (params['guess'] == 'heads') {
+            if (params['guess']) {
 
                 res.writeHead(200, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify(objToJson))
                 const coinOption = params['guess']; // ??? 
                 const flipResult = Math.ceil(Math.random() * 2) === 1 ? 'heads' : 'tails';
 
@@ -41,7 +40,7 @@ const server = http.createServer((req, res) => {
                 const objToJson = {
                     result: flipResult
                 }
-
+                res.end(JSON.stringify(objToJson))
             }
         }
     }

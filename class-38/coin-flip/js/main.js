@@ -2,6 +2,8 @@ const headAndTails = document.querySelectorAll('.htbutton');
 const heads = document.querySelector('#heads-button');
 const tails = document.querySelector('#tails-button');
 
+let playerGuess = '';
+
 // add event listener to head and tail buttons
 headAndTails.forEach(button => {
     button.addEventListener('click', iniateGuess)
@@ -11,16 +13,14 @@ headAndTails.forEach(button => {
 function iniateGuess(event) {
     //step 1: button styling on head or tail selection + assign variable for playerGuess
 
-    let playerGuess = '';
-
-    if (heads === event.target) {
+    if ('heads-button' === event.target.id) {
         heads.style.color = 'white';
         heads.style.background = '#6D7969';
         tails.style.color = 'black';
         tails.style.background = 'white';
         playerGuess = 'heads';
     }
-    else if (tails == event.target) {
+    else if ('tails-button' == event.target.id) {
         tails.style.color = 'white';
         tails.style.background = '#6D7969';
         heads.style.color = 'black';
@@ -29,6 +29,7 @@ function iniateGuess(event) {
     }
     //show step 2
     document.querySelector('.step2').style.visibility = 'visible';
+    console.log(playerGuess)
 }
 
 //make request to api when flip coin button clicked
@@ -40,13 +41,14 @@ flipButton.addEventListener('click', showScore);
 function showScore() {
     document.querySelector('.player').style.visibility = 'visible';
     document.querySelector('.computer').style.visibility = 'visible';
+    flipButton.innerText = 'Flip Again';
 }
 
-async function showResult(playerGuess) {
+async function showResult() {
     // console.log(playerGuess);
-    const coinOption = playerGuess;
-    console.log(coinOption);
-    const res = await fetch(`/api?guess=${coinOption}`);
+    // const coinOption = playerGuess;
+    // console.log(coinOption);
+    const res = await fetch(`/api?guess=${playerGuess}`);
     const data = await res.json();
 
     console.log(data);

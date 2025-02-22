@@ -34,6 +34,9 @@ Due Class 15:
 Due Class 16: 
 - [Kingdom Hearts Character Picker (Personalize background picker code)](https://github.com/lillian-nguyen/100devsC2/tree/main/class-16/character-picker)
 
+Due Class 22: 
+- [Js Info Array Methods Exercises](https://github.com/lillian-nguyen/100devsC2/tree/main/class-22)
+
 Due Class 25:
 - [Object Oriented Code Exercises](https://github.com/lillian-nguyen/100devsC2/tree/main/class-25)
 
@@ -42,3 +45,6 @@ Due Class 28:
   - [Cocktail Database](https://github.com/lillian-nguyen/100devsC2/tree/main/class-28/cocktail-database)
   - [Fortune Cookie Message Generator](https://github.com/lillian-nguyen/100devsC2/tree/main/class-28/fortune-cookie)
   - [Harry Potter Yearbook](https://github.com/lillian-nguyen/100devsC2/tree/main/class-28/harry-potter)
+
+Due Class 41: 
+- [Create your own API and host it](https://github.com/lillian-nguyen/Canes-API)
